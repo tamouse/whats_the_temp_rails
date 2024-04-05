@@ -21,15 +21,15 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Fri, 05 Apr 2024 07:21:47 GMT
+      - Fri, 05 Apr 2024 08:00:08 GMT
       Content-Type:
       - application/json
-      Transfer-Encoding:
-      - chunked
+      Content-Length:
+      - '63'
       Connection:
       - keep-alive
       Server:
-      - BunnyCDN-IL1-940
+      - BunnyCDN-IL1-1029
       Cdn-Pullzone:
       - '93447'
       Cdn-Uid:
@@ -45,7 +45,7 @@ http_interactions:
       X-Weatherapi-Qpm-Left:
       - '4999940'
       X-Varnish:
-      - '814580203'
+      - '822415728'
       Cdn-Proxyver:
       - '1.04'
       Cdn-Requestpullsuccess:
@@ -53,17 +53,17 @@ http_interactions:
       Cdn-Requestpullcode:
       - '400'
       Cdn-Cachedat:
-      - 04/05/2024 07:21:47
+      - 04/05/2024 08:00:08
       Cdn-Edgestorageid:
       - '718'
       Cdn-Status:
       - '400'
       Cdn-Requestid:
-      - dc02b7b0cf7e44f5d621cf9ea4bc68dd
+      - 878bb433ba3fb486b9fb197eb88823a0
       Cdn-Cache:
-      - MISS
+      - EXPIRED
     body:
       encoding: UTF-8
       string: '{"error":{"code":1006,"message":"No matching location found."}}'
-  recorded_at: Fri, 05 Apr 2024 07:21:47 GMT
+  recorded_at: Fri, 05 Apr 2024 08:00:08 GMT
 recorded_with: VCR 6.2.0
