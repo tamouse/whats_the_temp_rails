@@ -17,6 +17,9 @@ Rails.application.configure do
   # loading is working properly before deploying your code.
   config.eager_load = ENV["CI"].present?
 
+  # Add lib/ to autoload and eager loading
+  config.autoload_lib(ignore: %w[assets tasks generators])
+
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
   config.public_file_server.headers = {
