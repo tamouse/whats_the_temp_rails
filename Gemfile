@@ -18,6 +18,7 @@ group :development, :test do
   gem "pry-byebug"
   gem "pry-doc"
   gem "rspec-rails"
+  gem 'rubocop', require: false
   gem "vcr"
   gem "webmock"
 end
