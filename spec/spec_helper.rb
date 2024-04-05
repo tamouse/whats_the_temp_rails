@@ -101,4 +101,7 @@ end
 VCR.configure do |vcr|
   vcr.cassette_library_dir = File.expand_path("fixtures/vcr_cassettes", __dir__)
   vcr.hook_into :webmock
+  vcr.filter_sensitive_data "<API_KEY>" do
+    ENV.fetch("WEATHER_API_KEY", nil)
+  end
 end

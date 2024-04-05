@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.weatherapi.com/v1/current.json?aqi=no&key=d83c18de62814e559d1143220240404&q=55118
+    uri: http://api.weatherapi.com/v1/current.json?aqi=no&key=<API_KEY>&q=55118
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 05 Apr 2024 04:31:38 GMT
+      - Fri, 05 Apr 2024 08:00:08 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -31,7 +31,7 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Server:
-      - BunnyCDN-IL1-1068
+      - BunnyCDN-IL1-1029
       Cdn-Pullzone:
       - '93447'
       Cdn-Uid:
@@ -45,9 +45,9 @@ http_interactions:
       Via:
       - 1.1 varnish (Varnish/6.0)
       X-Weatherapi-Qpm-Left:
-      - '4999961'
+      - '4999940'
       X-Varnish:
-      - '802857928'
+      - '833915392'
       Cdn-Proxyver:
       - '1.04'
       Cdn-Requestpullsuccess:
@@ -55,19 +55,19 @@ http_interactions:
       Cdn-Requestpullcode:
       - '200'
       Cdn-Cachedat:
-      - 04/05/2024 04:31:38
+      - 04/05/2024 08:00:08
       Cdn-Edgestorageid:
       - '1070'
       Cdn-Status:
       - '200'
       Cdn-Requestid:
-      - b5b6982ca195ce2d06cfa26282f359ac
+      - ad10aa74bdedda5a3f501034fec642e9
       Cdn-Cache:
       - EXPIRED
     body:
       encoding: ASCII-8BIT
-      string: '{"location":{"name":"Saint Paul","region":"Minnesota","country":"USA","lat":44.9,"lon":-93.11,"tz_id":"America/Chicago","localtime_epoch":1712291392,"localtime":"2024-04-04
-        23:29"},"current":{"last_updated_epoch":1712290500,"last_updated":"2024-04-04
-        23:15","temp_c":5.0,"temp_f":41.0,"is_day":0,"condition":{"text":"Clear","icon":"//cdn.weatherapi.com/weather/64x64/night/113.png","code":1000},"wind_mph":2.2,"wind_kph":3.6,"wind_degree":10,"wind_dir":"N","pressure_mb":1018.0,"pressure_in":30.06,"precip_mm":0.0,"precip_in":0.0,"humidity":55,"cloud":0,"feelslike_c":2.6,"feelslike_f":36.8,"vis_km":16.0,"vis_miles":9.0,"uv":1.0,"gust_mph":8.3,"gust_kph":13.4}}'
-  recorded_at: Fri, 05 Apr 2024 04:31:38 GMT
+      string: '{"location":{"name":"Saint Paul","region":"Minnesota","country":"USA","lat":44.9,"lon":-93.11,"tz_id":"America/Chicago","localtime_epoch":1712303901,"localtime":"2024-04-05
+        2:58"},"current":{"last_updated_epoch":1712303100,"last_updated":"2024-04-05
+        02:45","temp_c":2.8,"temp_f":37.0,"is_day":0,"condition":{"text":"Clear","icon":"//cdn.weatherapi.com/weather/64x64/night/113.png","code":1000},"wind_mph":2.2,"wind_kph":3.6,"wind_degree":10,"wind_dir":"N","pressure_mb":1019.0,"pressure_in":30.1,"precip_mm":0.0,"precip_in":0.0,"humidity":61,"cloud":0,"feelslike_c":1.3,"feelslike_f":34.3,"vis_km":16.0,"vis_miles":9.0,"uv":1.0,"gust_mph":5.7,"gust_kph":9.2}}'
+  recorded_at: Fri, 05 Apr 2024 08:00:08 GMT
 recorded_with: VCR 6.2.0

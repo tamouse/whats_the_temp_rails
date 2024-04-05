@@ -33,7 +33,7 @@ RSpec.describe WeatherAPI do
     context "when address is a zip code" do
       subject do
         actual = nil
-        VCR.use_cassette "current_#{address}" do
+        VCR.use_cassette "lib/weather_api/current/zip_code" do
           actual = client.current(address:)
         end
         actual
@@ -64,7 +64,7 @@ RSpec.describe WeatherAPI do
     context "when address is a city" do
       subject do
         actual = nil
-        VCR.use_cassette "current_#{address}" do
+        VCR.use_cassette "lib/weather_api/current/city" do
           actual = client.current(address:)
         end
         actual
@@ -95,7 +95,7 @@ RSpec.describe WeatherAPI do
     context "when address is a IP address" do
       subject do
         actual = nil
-        VCR.use_cassette "current_#{address}" do
+        VCR.use_cassette "lib/weather_api/current/ip" do
           actual = client.current(address:)
         end
         actual
@@ -126,7 +126,7 @@ RSpec.describe WeatherAPI do
     context "when address is auto:ip looking" do
       subject do
         actual = nil
-        VCR.use_cassette "current_#{address}" do
+        VCR.use_cassette "lib/weather_api/current/auto_ip" do
           actual = client.current(address:)
         end
         actual
@@ -155,18 +155,10 @@ RSpec.describe WeatherAPI do
     end
 
     context "when address is unrecognizable" do
-      subject do
-        actual = nil
-        VCR.use_cassette "current_#{address}" do
-          actual = client.current(address:)
-        end
-        actual
-      end
+      let(:address) { "3blQ0KDw4Ah64CuPVpNLMw==" }
 
-      let(:address) { SecureRandom.base64 }
-
-      it "retrieves the weather information for the address" do
-        VCR.use_cassette "current_#{address}" do
+      it "returns an error from the weather api" do
+        VCR.use_cassette "lib/weather_api/current/random" do
           expect do
             client.current(address:)
           end.to raise_error(WeatherAPI::Error, "Problem with the WeatherAPI: response code: 400")
