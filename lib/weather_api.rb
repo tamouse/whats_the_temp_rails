@@ -14,11 +14,11 @@ class WeatherAPI
 
   private
 
-  def create_url(q:, path:)
+  def create_url(query:, path:)
     url = URI(base_url)
     old_path = url.path
     url.path = old_path + path
-    url.query = URI.encode_www_form(key: api_key, q: q, aqi: "no")
+    url.query = URI.encode_www_form(key: api_key, query:, aqi: "no")
     url
   end
 end
