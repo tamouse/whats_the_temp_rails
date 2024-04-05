@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.weatherapi.com/v1/current.json?aqi=no&key=d83c18de62814e559d1143220240404&q=55118
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.weatherapi.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 05 Apr 2024 04:31:38 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Server:
+      - BunnyCDN-IL1-1068
+      Cdn-Pullzone:
+      - '93447'
+      Cdn-Uid:
+      - 8fa3a04a-75d9-4707-8056-b7b33c8ac7fe
+      Cdn-Requestcountrycode:
+      - US
+      Age:
+      - '0'
+      Cache-Control:
+      - public, max-age=180
+      Via:
+      - 1.1 varnish (Varnish/6.0)
+      X-Weatherapi-Qpm-Left:
+      - '4999961'
+      X-Varnish:
+      - '802857928'
+      Cdn-Proxyver:
+      - '1.04'
+      Cdn-Requestpullsuccess:
+      - 'True'
+      Cdn-Requestpullcode:
+      - '200'
+      Cdn-Cachedat:
+      - 04/05/2024 04:31:38
+      Cdn-Edgestorageid:
+      - '1070'
+      Cdn-Status:
+      - '200'
+      Cdn-Requestid:
+      - b5b6982ca195ce2d06cfa26282f359ac
+      Cdn-Cache:
+      - EXPIRED
+    body:
+      encoding: ASCII-8BIT
+      string: '{"location":{"name":"Saint Paul","region":"Minnesota","country":"USA","lat":44.9,"lon":-93.11,"tz_id":"America/Chicago","localtime_epoch":1712291392,"localtime":"2024-04-04
+        23:29"},"current":{"last_updated_epoch":1712290500,"last_updated":"2024-04-04
+        23:15","temp_c":5.0,"temp_f":41.0,"is_day":0,"condition":{"text":"Clear","icon":"//cdn.weatherapi.com/weather/64x64/night/113.png","code":1000},"wind_mph":2.2,"wind_kph":3.6,"wind_degree":10,"wind_dir":"N","pressure_mb":1018.0,"pressure_in":30.06,"precip_mm":0.0,"precip_in":0.0,"humidity":55,"cloud":0,"feelslike_c":2.6,"feelslike_f":36.8,"vis_km":16.0,"vis_miles":9.0,"uv":1.0,"gust_mph":8.3,"gust_kph":13.4}}'
+  recorded_at: Fri, 05 Apr 2024 04:31:38 GMT
+recorded_with: VCR 6.2.0

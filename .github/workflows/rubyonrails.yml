@@ -26,6 +26,8 @@ jobs:
         run: bin/rails db:schema:load
       # Add or replace test runners here
       - name: Run tests
+        env:
+          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
         run: bin/rake
 
   lint:
