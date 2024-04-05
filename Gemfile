@@ -23,11 +23,10 @@ group :development, :test do
   gem "rubocop", require: false
   gem "vcr"
   gem "webmock"
+  gem "rubocop-rails", "~> 2.24"
+  gem "rubocop-rspec", "~> 2.29"
 end
 
 group :development do
   gem "web-console"
 end
-
-gem "rubocop-rails", "~> 2.24"
-gem "rubocop-rspec", "~> 2.29"

@@ -163,7 +163,7 @@ RSpec.describe WeatherAPI do
         actual
       end
 
-      let(:address) { SecureRandom.base64 }
+      let(:address) { "3blQ0KDw4Ah64CuPVpNLMw==" }
 
       it "retrieves the weather information for the address" do
         VCR.use_cassette "current_#{address}" do
