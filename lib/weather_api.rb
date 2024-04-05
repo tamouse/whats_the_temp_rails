@@ -18,7 +18,7 @@ class WeatherAPI
     url = URI(base_url)
     old_path = url.path
     url.path = old_path + path
-    url.query = URI.encode_www_form(key: api_key, query:, aqi: "no")
+    url.query = URI.encode_www_form(key: api_key, q: query, aqi: "no")
     url
   end
 end

@@ -11,7 +11,7 @@ RSpec.describe WeatherAPI do
     let(:api_key) { "abc123" }
 
     it "returns the expected URL" do
-      actual = client.send(:create_url, q: address, path: "/current.json")
+      actual = client.send(:create_url, query: address, path: "/current.json")
       expected = "http://api.weatherapi.com/v1/current.json?key=abc123&q=55118&aqi=no"
       expect(actual.to_s).to eq(expected)
     end
