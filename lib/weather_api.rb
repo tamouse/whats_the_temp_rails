@@ -17,9 +17,8 @@ class WeatherAPI
   def current(address:)
     url = create_url(query: address, path: "/current.json")
     response = Net::HTTP.get_response(url)
-    if response.code.to_i >= 400
-      raise WeatherAPI::Error.new("Problem with the WeatherAPI: response code: #{response.code}")
-    end
+    raise WeatherAPI::Error, "Problem with the WeatherAPI: response code: #{response.code}" if response.code.to_i >= 400
+
     JSON.parse(response.body)
   end
 

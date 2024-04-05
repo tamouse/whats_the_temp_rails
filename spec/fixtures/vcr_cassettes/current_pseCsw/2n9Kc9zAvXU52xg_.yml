@@ -1,0 +1,69 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.weatherapi.com/v1/current.json?aqi=no&key=d83c18de62814e559d1143220240404&q=pseCsw/2n9Kc9zAvXU52xg==
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.weatherapi.com
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Fri, 05 Apr 2024 05:36:14 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '63'
+      Connection:
+      - keep-alive
+      Server:
+      - BunnyCDN-IL1-1070
+      Cdn-Pullzone:
+      - '93447'
+      Cdn-Uid:
+      - 8fa3a04a-75d9-4707-8056-b7b33c8ac7fe
+      Cdn-Requestcountrycode:
+      - US
+      Age:
+      - '0'
+      Cache-Control:
+      - public, max-age=5
+      Via:
+      - 1.1 varnish (Varnish/6.0)
+      X-Weatherapi-Qpm-Left:
+      - '4999960'
+      X-Varnish:
+      - '829489984'
+      Cdn-Proxyver:
+      - '1.04'
+      Cdn-Requestpullsuccess:
+      - 'True'
+      Cdn-Requestpullcode:
+      - '400'
+      Cdn-Cachedat:
+      - 04/05/2024 05:36:14
+      Cdn-Edgestorageid:
+      - '894'
+      Cdn-Status:
+      - '400'
+      Cdn-Requestid:
+      - dc47c4c5f9259813349017992d420a84
+      Cdn-Cache:
+      - MISS
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":1006,"message":"No matching location found."}}'
+  recorded_at: Fri, 05 Apr 2024 05:36:14 GMT
+recorded_with: VCR 6.2.0
