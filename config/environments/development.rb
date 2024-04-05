@@ -11,6 +11,9 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  # Add lib/ to autoload and eager loading
+  config.autoload_lib(ignore: %w[assets tasks generators])
+
   # Show full error reports.
   config.consider_all_requests_local = true
 
