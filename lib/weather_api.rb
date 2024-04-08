@@ -8,6 +8,8 @@ class WeatherAPI
   attr_accessor :api_key, :base_url
 
   class Error < StandardError; end
+  class MissingAPIKey < Error; end
+  class MissingBaseUrl < Error; end
 
   def initialize(api_key: nil, base_url: nil)
     @api_key = api_key || API_KEY
@@ -15,6 +17,9 @@ class WeatherAPI
   end
 
   def current(address:)
+    raise MissingAPIKey, "API_KEY is not set" if api_key.nil?
+    raise MissingBaseUrl, "BASE_URL is not set" if base_url.nil?
+
     url = create_url(query: address, path: "/current.json")
     response = Net::HTTP.get_response(url)
     raise WeatherAPI::Error, "Problem with the WeatherAPI: response code: #{response.code}" if response.code.to_i >= 400

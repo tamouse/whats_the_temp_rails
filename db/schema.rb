@@ -10,5 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 0) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_08_184958) do
+  create_table "readings", force: :cascade do |t|
+    t.string "address"
+    t.string "temperature"
+    t.string "temp_scale", default: "Fahrenheit"
+    t.json "service_errors", default: {}
+    t.boolean "used_cache", default: false, null: false
+    t.string "request_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end

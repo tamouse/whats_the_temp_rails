@@ -1,0 +1,28 @@
+<% if @reading.service_errors.present? %>
+  <ul>
+    <% @reading.service_errors.each do |k, msgs| %>
+      <li><strong><%= k %>:</strong>
+        <ul>
+        <% msgs.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ul
+<% else %>
+  <h3>The current temp for <%= @reading.address %> is</h3>
+  <h4>
+    <%= @reading.temperature %>
+    &deg;<%= @reading.temp_scale == WeatherService::FAHRENHEIT_SCALE ? 'F' : 'C' %>
+    <% if @reading.used_cache %>
+      <span class="cached">(from cache)</span>
+    <% end %>
+  </h4>
+<% end  %>
+
+<hr />
+
+<h2>Try again:</h2>
+
+<%= render partial: 'form' %>

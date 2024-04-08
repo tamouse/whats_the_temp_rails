@@ -47,10 +47,13 @@ class WeatherService
   rescue KeyError => e
     errors.add(:base, e.message)
     self
+  rescue WeatherAPI::Error => e
+    errors.add(:api, e.message)
+    self
   end
 
   def success?
-    @temperature.present?
+    @temperature.present? && errors.emopty?
   end
   alias success success?
 
