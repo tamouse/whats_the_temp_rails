@@ -11,7 +11,6 @@ class WeatherAPI
   class MissingAPIKey < Error; end
   class MissingBaseUrl < Error; end
 
-
   def initialize(api_key: nil, base_url: nil)
     @api_key = api_key || API_KEY
     @base_url = base_url || BASE_URL
