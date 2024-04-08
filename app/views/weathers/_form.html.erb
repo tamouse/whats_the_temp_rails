@@ -1,0 +1,7 @@
+<%=form_for(:reading, url: weathers_path) do |f| %>
+  Location: <%= f.text_field :address %><br />
+  Scale: <%= f.radio_button :temp_scale, WeatherService::FAHRENHEIT_SCALE %> &deg;F
+  <%= f.radio_button :temp_scale, WeatherService::CELSIUS_SCALE %> &deg;C
+  <br />
+  <%= f.submit  %>
+<% end %>
