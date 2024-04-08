@@ -2,14 +2,17 @@
 
 # Controller handling requests for a tepm reading at an address
 class WeathersController < ApplicationController
+  # GET weathers
   def index
     @reading = Reading.new
   end
 
+  # GET weater/:id
   def show
     @reading = Reading.find(show_params[:id])
   end
 
+  # POST weathers
   def create
     ws = WeatherService.current_temp_for(
       create_params[:address],
