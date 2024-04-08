@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Controller handling requests for a tepm reading at an address
 class WeathersController < ApplicationController
   def index
     @reading = Reading.new
@@ -20,7 +21,7 @@ class WeathersController < ApplicationController
                                temperature: ws.temperature,
                                temp_scale: ws.temp_scale,
                                service_errors: ws.errors,
-                               used_cache: ws.using_cache,
+                               used_cache: ws.success? ? ws.using_cache : false,
                                request_ip: request.remote_host
                              })
     redirect_to action: :show, id: reading.id

@@ -53,7 +53,7 @@ class WeatherService
   end
 
   def success?
-    @temperature.present? && errors.emopty?
+    @temperature.present? && errors.empty?
   end
   alias success success?
 
