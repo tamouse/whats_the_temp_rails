@@ -22,11 +22,14 @@ Rails.application.configure do
   # Enable server timing
   config.server_timing = true
 
-  # Enable/disable caching. By default caching is disabled.
-  # Run rails dev:cache to toggle caching.
+  # NOTE: In this app, Rails caching is a key part of the architecture,
+  #   so it's permanently turned on in development.
   config.action_controller.perform_caching = true
   config.action_controller.enable_fragment_cache_logging = true
 
+  # NOTE: :memory_store caching is adequate for a toy app like this.
+  #   If this were put to an open production system, there would
+  #   need to be something more beefy, like Redis, perhaps.
   config.cache_store = :memory_store
   config.public_file_server.headers = {
     "Cache-Control" => "public, max-age=#{2.days.to_i}"

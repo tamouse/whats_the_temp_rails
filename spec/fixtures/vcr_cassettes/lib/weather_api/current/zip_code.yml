@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 05 Apr 2024 08:00:08 GMT
+      - Tue, 09 Apr 2024 02:56:27 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -31,7 +31,7 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Server:
-      - BunnyCDN-IL1-1029
+      - BunnyCDN-IL1-845
       Cdn-Pullzone:
       - '93447'
       Cdn-Uid:
@@ -45,9 +45,9 @@ http_interactions:
       Via:
       - 1.1 varnish (Varnish/6.0)
       X-Weatherapi-Qpm-Left:
-      - '4999940'
+      - '4999906'
       X-Varnish:
-      - '833915392'
+      - '101288374'
       Cdn-Proxyver:
       - '1.04'
       Cdn-Requestpullsuccess:
@@ -55,19 +55,19 @@ http_interactions:
       Cdn-Requestpullcode:
       - '200'
       Cdn-Cachedat:
-      - 04/05/2024 08:00:08
+      - 04/09/2024 02:56:27
       Cdn-Edgestorageid:
       - '1070'
       Cdn-Status:
       - '200'
       Cdn-Requestid:
-      - ad10aa74bdedda5a3f501034fec642e9
+      - 6004fe78e285bcce10aa2c32e26a6b05
       Cdn-Cache:
       - EXPIRED
     body:
       encoding: ASCII-8BIT
-      string: '{"location":{"name":"Saint Paul","region":"Minnesota","country":"USA","lat":44.9,"lon":-93.11,"tz_id":"America/Chicago","localtime_epoch":1712303901,"localtime":"2024-04-05
-        2:58"},"current":{"last_updated_epoch":1712303100,"last_updated":"2024-04-05
-        02:45","temp_c":2.8,"temp_f":37.0,"is_day":0,"condition":{"text":"Clear","icon":"//cdn.weatherapi.com/weather/64x64/night/113.png","code":1000},"wind_mph":2.2,"wind_kph":3.6,"wind_degree":10,"wind_dir":"N","pressure_mb":1019.0,"pressure_in":30.1,"precip_mm":0.0,"precip_in":0.0,"humidity":61,"cloud":0,"feelslike_c":1.3,"feelslike_f":34.3,"vis_km":16.0,"vis_miles":9.0,"uv":1.0,"gust_mph":5.7,"gust_kph":9.2}}'
-  recorded_at: Fri, 05 Apr 2024 08:00:08 GMT
+      string: '{"location":{"name":"Saint Paul","region":"Minnesota","country":"USA","lat":44.9,"lon":-93.11,"tz_id":"America/Chicago","localtime_epoch":1712631387,"localtime":"2024-04-08
+        21:56"},"current":{"last_updated_epoch":1712630700,"last_updated":"2024-04-08
+        21:45","temp_c":8.0,"temp_f":46.4,"is_day":0,"condition":{"text":"Light rain","icon":"//cdn.weatherapi.com/weather/64x64/night/296.png","code":1183},"wind_mph":10.5,"wind_kph":16.9,"wind_degree":210,"wind_dir":"SSW","pressure_mb":1009.0,"pressure_in":29.8,"precip_mm":0.0,"precip_in":0.0,"humidity":87,"cloud":100,"feelslike_c":8.0,"feelslike_f":46.5,"vis_km":11.0,"vis_miles":6.0,"uv":1.0,"gust_mph":15.0,"gust_kph":24.1}}'
+  recorded_at: Tue, 09 Apr 2024 02:56:27 GMT
 recorded_with: VCR 6.2.0

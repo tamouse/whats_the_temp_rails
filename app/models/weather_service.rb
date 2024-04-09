@@ -19,36 +19,36 @@ class WeatherService
   validates :address, presence: true
   validates :temp_scale, presence: true, inclusion: { in: [CELSIUS_SCALE, FAHRENHEIT_SCALE] }
 
-  def self.current_temp_for(address, options = {})
-    new(options).current_temp_for(address)
+  def self.current_weather(address, options = {})
+    new(options).current_weather(address)
   end
 
   def initialize(options = {})
     @options = options
     @temp_scale = options.fetch(:temp_scale, FAHRENHEIT_SCALE)
-    @use_caching = options.fetch(:use_caching, false)
+    @use_caching = options.fetch(:use_caching, true)
     @cache_timeout = options.fetch(:cache_timeout, CACHE_TIMEOUT)
   end
 
   # @param [String] address: The string to pass to query the service
-  # @return [WeatherService] the current temperature
-  def current_temp_for(address)
+  # @return [WeatherService] This object
+  def current_weather(address)
     @address = address
-    if valid?
+    @temperature = nil
+    return self unless valid?
+
+    begin
       if use_caching
         cached_fetch
       else
-        temp_fetch
+        fetch_weather
       end
-    else
-      @temperature = nil
+    rescue KeyError => e
+      errors.add(:base, e.message)
+    rescue WeatherAPI::Error => e
+      errors.add(:api, e.message)
     end
-    self
-  rescue KeyError => e
-    errors.add(:base, e.message)
-    self
-  rescue WeatherAPI::Error => e
-    errors.add(:api, e.message)
+
     self
   end
 
@@ -63,11 +63,11 @@ class WeatherService
     @using_cache = true
     @temperature =
       Rails.cache.fetch(cache_key, expires_in: cache_timeout) do
-        temp_fetch
+        fetch_weather
       end
   end
 
-  def temp_fetch
+  def fetch_weather
     @using_cache = false
     @temperature =
       if temp_scale == FAHRENHEIT_SCALE

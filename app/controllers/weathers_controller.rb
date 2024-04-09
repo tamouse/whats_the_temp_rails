@@ -14,7 +14,7 @@ class WeathersController < ApplicationController
 
   # POST weathers
   def create
-    ws = WeatherService.current_temp_for(
+    ws = WeatherService.current_weather(
       create_params[:address],
       { temp_scale: create_params[:temp_scale], use_caching: true }
     )

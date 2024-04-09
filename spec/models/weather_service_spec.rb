@@ -3,35 +3,42 @@
 require "rails_helper"
 
 RSpec.describe WeatherService do
-  describe "#current_temp_for" do
+  describe "#current_weather" do
+    let(:temp_c) { 21.0 }
+    let(:temp_f) { 69.8 }
+    let(:fake_data) do
+      {
+        "temp_c" => temp_c,
+        "temp_f" => temp_f
+      }
+    end
+
+    before do
+      allow(subject).to receive(:current).once.and_return(fake_data)
+    end
+
     context "when caching is off" do
       context "when temp_scale is Celsius" do
-        let(:service) { described_class.new(temp_scale: "Celsius") }
+        subject { described_class.new(temp_scale: "Celsius") }
 
         before do
-          VCR.use_cassette "weather_service/current_temp_for/when_temp_scale_is_celsius" do
-            # NOTE: Sadly, this could be brittle, if the VCR cassette changes and the conditions are different
-            assert(service.current_temp_for("London"))
-          end
+          assert(subject.current_weather("London"))
         end
 
         it "returns the current temp in Celsius" do
-          expect(service.temperature).to eq(13.0)
+          expect(subject.temperature).to eq(temp_c)
         end
       end
 
       context "when temp_scale is Fahrenheit" do
-        let(:service) { described_class.new(temp_scale: "Fahrenheit") }
+        subject { described_class.new(temp_scale: "Fahrenheit") }
 
         before do
-          VCR.use_cassette "weather_service/current_temp_for/when_temp_scale_is_fahrenheit" do
-            # NOTE: Sadly, this could be brittle, if the VCR cassette changes and the conditions are different
-            assert(service.current_temp_for("London"))
-          end
+          assert(subject.current_weather("London"))
         end
 
         it "returns the current temp in Fahrenheit" do
-          expect(service.temperature).to eq(55.4)
+          expect(subject.temperature).to eq(temp_f)
         end
       end
     end
@@ -45,16 +52,9 @@ RSpec.describe WeatherService do
           use_caching: true
         }
       end
-      let(:fake_data) do
-        {
-          "temp_c" => 21.0,
-          "temp_f" => 69.8
-        }
-      end
 
       before do
-        allow(subject).to receive(:current).once.and_return(fake_data)
-        subject.current_temp_for("Madrid")
+        subject.current_weather("Madrid")
       end
 
       it "using_cache should be false first time" do
@@ -62,16 +62,16 @@ RSpec.describe WeatherService do
       end
 
       it "getting Madrid again should use cached value" do
-        subject.current_temp_for("Madrid")
+        subject.current_weather("Madrid")
         expect(subject.using_cache).to be_truthy
       end
     end
   end
 
-  describe "self.current_temp_for" do
-    it "calls #current_temp_for on an instance" do
-      expect_any_instance_of(described_class).to receive(:current_temp_for)
-      described_class.current_temp_for("London")
+  describe "self.current_weather" do
+    it "calls #current_weather on an instance" do
+      expect_any_instance_of(described_class).to receive(:current_weather)
+      described_class.current_weather("London")
     end
   end
 end
