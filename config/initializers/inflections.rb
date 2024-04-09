@@ -17,5 +17,7 @@
 #   inflect.acronym "RESTful"
 # end
 ActiveSupport::Inflector.inflections(:en) do |inflect|
+  # I added this inflection so weather_api.rb would be mapped to WeatherAPI
+  # Using "Api" just bothers me.
   inflect.acronym "API"
 end

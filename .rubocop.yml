@@ -26,7 +26,7 @@ Metrics/ParameterLists:
   CountKeywordArgs: false
 
 Style/Documentation:
-  Enabled: false
+  Enabled: true
 
 RSpec/NamedSubject:
   Enabled: false

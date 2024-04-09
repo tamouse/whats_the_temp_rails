@@ -31,7 +31,12 @@ Rails.application.configure do
   # Show full error reports and disable caching.
   config.consider_all_requests_local = true
   config.action_controller.perform_caching = false
+
   # config.cache_store = :null_store
+  # NOTE: Usuall no caching is done in test mode. In this app, however, in order
+  #   to test that the caching logic works, we turn on :memory_store caching.
+  #   I'm unfamiliar with how to enable caching for a single test file,
+  #   or I would have done that instead.
   config.cache_store = :memory_store
 
   # Render exception templates for rescuable exceptions and raise for other exceptions.
