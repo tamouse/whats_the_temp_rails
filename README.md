@@ -1,8 +1,8 @@
-# What's the Temp>
+# What's the Temp?
 
 A small Rails app written as a coding exercise for a job interview.
 
-## Prerequisits
+## Prerequisites
 
 * Ruby version: 3.2.x
 * Bundler version: 2.5.7
@@ -66,15 +66,15 @@ Briefly, they include:
 
 The weather API is just one of several that are available. Separating it leaves relatively easy to replace it at some point.
 
-There is still a fair amount of coupling between `WeatherService` and `WeatherAPI` but in a truly well-constrtucted API class, it should be able to handle the form the service is expecting, even if that invovles some translation of field names and structures. I didn't go to that extend to provide an exhaustive manifold here, since it's too much for a coding sample.
+There is still a fair amount of coupling between `WeatherService` and `WeatherAPI` but in a truly well-constructed API class, it should be able to handle the form the service is expecting, even if that involves some translation of field names and structures. I didn't go to that extend to provide an exhaustive manifold here, since it's too much for a coding sample.
 
 ## Use a service object for the weather
 
-Another place of abstraction that provides a place for the app to perform caching on the calls, handling the responses from the API, and giving the contraller an object to query about the weather.
+Another place of abstraction that provides a place for the app to perform caching on the calls, handling the responses from the API, and giving the controller an object to query about the weather.
 
 ## Slim controller
 
-The `WeathersController` provides the parameter validation, dispatching the `WeatherService` and creating a `Reading` entry, then marshallling whatever is needed for the views.
+The `WeathersController` provides the parameter validation, dispatching the `WeatherService` and creating a `Reading` entry, then Marshalling whatever is needed for the views.
 
 ## Views 
 
@@ -89,5 +89,5 @@ There is no view for the create action since it only redirects to the show actio
 To fulfill the requirement to cache the weather responses for 30 minutes, I chose to use Rails Caching in the `WeatherService`. This works rather well, but there are some other concerns.
 When the cached entry comes back, the controller still makes a `Reading` record in the database. This needlessly creates records, and wastes space.
 
-Rails caching is the means to acheiving the caching effect, but I think it would be better to cache the `Reading` record rather than build a hew one. My initial instinct is to build this into the `WeatherService` but perhaps its more appropriate to split that functionality into two services, one that deals with `Reading` caching and the other that is called only on a cache miss.
+Rails caching is the means to achieving the caching effect, but I think it would be better to cache the `Reading` record rather than build a hew one. My initial instinct is to build this into the `WeatherService` but perhaps its more appropriate to split that functionality into two services, one that deals with `Reading` caching and the other that is called only on a cache miss.
 
